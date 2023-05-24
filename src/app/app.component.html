@@ -20,6 +20,9 @@
                  contenu dans le FormGroup userForm
             -->
         <input type="email" formControlName="email">
+        <span *ngIf="userForm.controls.credentials.controls.email.errors">
+        {{ userForm.controls.credentials.controls.email.errors['email'].rules }}
+      </span>
       </label>
     </div>
 

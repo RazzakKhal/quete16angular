@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { emailValidator } from './email-validator';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
   
   userForm = this.fb.group({
     credentials : this.fb.group({
-      email : [''], 
+      email : [[''], emailValidator], 
       password : ['']
     }),
     username : [''],
@@ -30,5 +31,6 @@ export class AppComponent {
 
   onSubmit(){
     console.log(this.userForm.value);
+    console.log( this.userForm.controls.credentials.controls.email.errors);
   }
 }
